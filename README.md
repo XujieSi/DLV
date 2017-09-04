@@ -1,10 +1,50 @@
 # DLV
 
 
-NB: the software is currently under active development. Please feel free to contact the developer by email: xiaowei.huang@cs.ox.ac.uk. 
+This repo is forked from https://github.com/VeriDeep/DLV 
 
-Together with the software, there are two documents in Documents/ directory, one is the theory paper and the other is an user manual. The user manual will be updated from time to time. Please refer to the documents for more details about the software. 
+The goal is to reproduce the results presented in CAV 2017 [paper](https://arxiv.org/abs/1610.06940).
 
+
+## Environment Setup 
+
+The following instructions are tested on Mac OS X and Debian Linux.
+
+(0) assume `miniconda` or `anaconda` is used to setup python environment
+
+(1) create an virtual environment (called DLV or any other name you like) using conda
+```
+conda create -n DLV python=2.7 theano=0.9
+```
+
+(2) activate the virtual environment
+```
+source activate DLV
+```
+
+(3) install packages available in conda
+```
+conda install matplotlib cvxopt scikit-image h5py
+```
+
+(4) install packages available in pip
+```
+pythonp install stopit keras==1.2.2 
+```
+
+(5) revise default keras config
+```
+"image_dim_ordering": "tf", ==>  "image_dim_ordering": "th", 
+"backend": "tensorflow" ==>  "backend": "theano"
+```
+
+(6) export z3 python environment
+```
+export PYTHONPATH=~/Projects/z3/build/python/
+```
+
+
+## Brief instructions from the original author
 (1) Installation: 
 
 To run the program, one needs to install the following packages: 
@@ -22,6 +62,3 @@ Use the following command to call the program:
 
 Please use the file ''configuration.py'' to set the parameters for the system to run. 
 
-
-
-Xiaowei Huang
